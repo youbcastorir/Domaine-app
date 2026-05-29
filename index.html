@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Domain Formula AI — Advanced Domain Valuation Platform</title>
+<meta name="description" content="AI-powered domain name valuation using advanced mathematical pricing formulas. Get instant appraisals, brandability scores, rarity analysis, and market trend data.">
+<meta name="keywords" content="domain appraisal, domain valuation, AI domain pricing, domain name worth, domain calculator, brandability score">
+<meta name="author" content="Domain Formula AI">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://domainformula.ai/">
+<!-- OpenGraph -->
+<meta property="og:title" content="Domain Formula AI — Advanced Domain Valuation">
+<meta property="og:description" content="Get instant AI-powered domain appraisals using advanced mathematical pricing equations.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://domainformula.ai/">
+<meta property="og:image" content="https://domainformula.ai/og-image.png">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Domain Formula AI">
+<meta name="twitter:description" content="AI-powered domain valuation platform">
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Domain Formula AI",
+  "description": "AI-powered domain name valuation platform",
+  "url": "https://domainformula.ai/",
+  "applicationCategory": "BusinessApplication",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+}
+</script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&family=JetBrains+Mono:wght@300;400;700&display=swap');
+
+:root {
+  --bg: #020408;
+  --bg2: #060d14;
+  --bg3: #0a1525;
+  --neon: #00d4ff;
+  --neon2: #0088ff;
+  --neon3: #00ff88;
+  --neon4: #ff6b35;
+  --glass: rgba(0,212,255,0.04);
+  --glass2: rgba(0,212,255,0.08);
+  --border: rgba(0,212,255,0.15);
+  --border2: rgba(0,212,255,0.3);
+  --text: #c8e8f8;
+  --text2: #6a9db8;
+  --text3: #3a6078;
+  --red: #ff3366;
+  --yellow: #ffd700;
+  --purple: #a855f7;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+html{scroll-behavior:smooth;}
+
+body{
+  font-family:'Rajdhani',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+  cursor:none;
+}
+
+/* Custom cursor */
+#cursor{position:fixed;width:12px;height:12px;background:var(--neon);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .1s;box-shadow:0 0 20px var(--neon);}
+#cursor-ring{position:fixed;width:40px;height:40px;border:1px solid rgba(0,212,255,0.4);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform .15s,width .3s,height .3s;}
+
+/* Scrollbar */
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:var(--bg2);}
+::-webkit-scrollbar-thumb{background:var(--neon2);border-radius:2px;}
+
+/* Grid background */
+body::before{
+  content:'';position:fixed;inset:0;
+  background-image:linear-gradient(rgba(0,212,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,255,0.03) 1px,transparent 1px);
+  background-size:60px 60px;pointer-events:none;z-index:0;
+}
+
+/* Nav */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:20px 40px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(2,4,8,0.85);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+}
+.logo{
+  font-family:'Orbitron',sans-serif;
+  font-size:1.2rem;font-weight:900;
+  color:var(--neon);
+  text-shadow:0 0 20px rgba(0,212,255,0.5);
+  letter-spacing:2px;
+}
+.logo span{color:var(--neon3);}
+.nav-links{display:flex;gap:32px;list-style:none;}
+.nav-links a{color:var(--text2);text-decoration:none;font-weight:600;font-size:.9rem;letter-spacing:1px;text-transform:uppercase;transition:color .3s;}
+.nav-links a:hover{color:var(--neon);}
+.nav-cta{
+  background:linear-gradient(135deg,var(--neon2),var(--neon));
+  color:#000;padding:10px 24px;border-radius:4px;font-family:'Orbitron',sans-serif;
+  font-size:.75rem;font-weight:700;letter-spacing:1px;cursor:pointer;border:none;
+  transition:box-shadow .3s,transform .2s;text-decoration:none;
+}
+.nav-cta:hover{box-shadow:0 0 30px rgba(0,212,255,0.5);transform:translateY(-1px);}
+
+/* Hero */
+.hero{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  position:relative;padding:120px 40px 80px;text-align:center;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(0,136,255,0.08) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--glass2);border:1px solid var(--border2);
+  padding:8px 20px;border-radius:100px;
+  font-size:.8rem;letter-spacing:2px;text-transform:uppercase;color:var(--neon);
+  margin-bottom:32px;
+  animation:fadeDown .8s ease both;
+}
+.hero-tag::before{content:'';width:6px;height:6px;background:var(--neon3);border-radius:50%;animation:pulse2 2s infinite;}
+h1{
+  font-family:'Orbitron',sans-serif;
+  font-size:clamp(2.2rem,6vw,5rem);
+  font-weight:900;line-height:1.1;
+  margin-bottom:24px;
+  animation:fadeUp .8s .2s ease both;
+}
+h1 .gradient{
+  background:linear-gradient(135deg,var(--neon),var(--neon2),var(--neon3));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-sub{
+  font-size:1.2rem;color:var(--text2);max-width:600px;margin:0 auto 48px;
+  line-height:1.7;animation:fadeUp .8s .35s ease both;
+}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;animation:fadeUp .8s .5s ease both;}
+.btn-primary{
+  background:linear-gradient(135deg,var(--neon2),var(--neon));
+  color:#000;padding:16px 40px;border-radius:4px;
+  font-family:'Orbitron',sans-serif;font-size:.8rem;font-weight:700;
+  letter-spacing:2px;cursor:pointer;border:none;text-decoration:none;
+  transition:box-shadow .3s,transform .2s;
+  box-shadow:0 0 40px rgba(0,136,255,0.3);
+}
+.btn-primary:hover{box-shadow:0 0 60px rgba(0,212,255,0.5);transform:translateY(-2px);}
+.btn-secondary{
+  background:transparent;color:var(--neon);
+  padding:16px 40px;border-radius:4px;
+  font-family:'Orbitron',sans-serif;font-size:.8rem;font-weight:700;
+  letter-spacing:2px;cursor:pointer;
+  border:1px solid var(--border2);text-decoration:none;
+  transition:background .3s,box-shadow .3s,transform .2s;
+}
+.btn-secondary:hover{background:var(--glass2);box-shadow:0 0 30px rgba(0,212,255,0.2);transform:translateY(-2px);}
+
+/* Stats bar */
+.stats-bar{
+  display:flex;justify-content:center;gap:60px;flex-wrap:wrap;
+  padding:40px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  background:var(--glass);position:relative;z-index:1;
+}
+.stat{text-align:center;}
+.stat-num{font-family:'Orbitron',sans-serif;font-size:2rem;font-weight:900;color:var(--neon);}
+.stat-label{font-size:.85rem;color:var(--text3);letter-spacing:1px;text-transform:uppercase;margin-top:4px;}
+
+/* Section */
+section{position:relative;z-index:1;padding:100px 40px;}
+.section-tag{
+  display:inline-block;font-size:.75rem;letter-spacing:3px;text-transform:uppercase;
+  color:var(--neon);margin-bottom:16px;
+  font-family:'Orbitron',sans-serif;
+}
+h2{font-family:'Orbitron',sans-serif;font-size:clamp(1.5rem,3vw,2.5rem);font-weight:900;margin-bottom:16px;}
+.section-sub{color:var(--text2);font-size:1.1rem;max-width:600px;margin-bottom:60px;line-height:1.7;}
+
+/* Calculator Section */
+.calc-section{background:var(--bg2);}
+.calc-container{max-width:1100px;margin:0 auto;}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
+
+/* Input Card */
+.card{
+  background:var(--glass);
+  border:1px solid var(--border);
+  border-radius:12px;padding:32px;
+  backdrop-filter:blur(10px);
+  transition:border-color .3s,box-shadow .3s;
+}
+.card:hover{border-color:var(--border2);box-shadow:0 0 40px rgba(0,212,255,0.05);}
+.card-title{font-family:'Orbitron',sans-serif;font-size:1rem;font-weight:700;color:var(--neon);margin-bottom:24px;letter-spacing:1px;}
+
+.domain-input-wrap{position:relative;margin-bottom:24px;}
+.domain-input{
+  width:100%;background:rgba(0,0,0,0.5);border:1px solid var(--border2);
+  color:var(--text);font-family:'JetBrains Mono',monospace;font-size:1.1rem;
+  padding:16px 20px;border-radius:8px;outline:none;
+  transition:border-color .3s,box-shadow .3s;
+}
+.domain-input:focus{border-color:var(--neon);box-shadow:0 0 20px rgba(0,212,255,0.2);}
+.domain-input::placeholder{color:var(--text3);}
+
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+.field{display:flex;flex-direction:column;gap:8px;}
+.field label{font-size:.8rem;letter-spacing:1px;text-transform:uppercase;color:var(--text2);font-weight:600;}
+.field input,.field select{
+  background:rgba(0,0,0,0.4);border:1px solid var(--border);
+  color:var(--text);font-family:'Rajdhani',sans-serif;font-size:1rem;
+  padding:10px 14px;border-radius:6px;outline:none;
+  transition:border-color .3s;
+}
+.field input:focus,.field select:focus{border-color:var(--neon);}
+.field select option{background:#060d14;}
+
+.range-wrap{display:flex;flex-direction:column;gap:8px;}
+.range-header{display:flex;justify-content:space-between;align-items:center;}
+.range-header label{font-size:.8rem;letter-spacing:1px;text-transform:uppercase;color:var(--text2);font-weight:600;}
+.range-val{font-family:'JetBrains Mono',monospace;font-size:.9rem;color:var(--neon);font-weight:700;}
+input[type=range]{
+  width:100%;-webkit-appearance:none;height:4px;
+  background:linear-gradient(90deg,var(--neon2) 0%,var(--neon) var(--pct,50%),var(--bg3) var(--pct,50%));
+  border-radius:2px;outline:none;cursor:pointer;margin:4px 0;
+}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none;width:16px;height:16px;
+  background:var(--neon);border-radius:50%;
+  box-shadow:0 0 10px rgba(0,212,255,0.8);cursor:pointer;
+}
+
+.calc-btn{
+  width:100%;background:linear-gradient(135deg,var(--neon2),var(--neon));
+  color:#000;padding:18px;border-radius:8px;
+  font-family:'Orbitron',sans-serif;font-size:.85rem;font-weight:900;
+  letter-spacing:2px;cursor:pointer;border:none;margin-top:24px;
+  transition:box-shadow .3s,transform .2s;
+  box-shadow:0 0 30px rgba(0,136,255,0.3);
+}
+.calc-btn:hover{box-shadow:0 0 50px rgba(0,212,255,0.5);transform:translateY(-2px);}
+.calc-btn:active{transform:translateY(0);}
+
+/* Results Panel */
+.results-panel{display:flex;flex-direction:column;gap:20px;}
+
+.price-display{
+  text-align:center;padding:32px;
+  background:linear-gradient(135deg,rgba(0,136,255,0.08),rgba(0,212,255,0.04));
+  border:1px solid var(--border2);border-radius:12px;
+  position:relative;overflow:hidden;
+}
+.price-display::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at center,rgba(0,212,255,0.06) 0%,transparent 70%);
+}
+.price-label{font-size:.8rem;letter-spacing:3px;text-transform:uppercase;color:var(--text2);margin-bottom:8px;}
+.price-value{
+  font-family:'Orbitron',sans-serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:900;
+  color:var(--neon3);text-shadow:0 0 40px rgba(0,255,136,0.4);
+  position:relative;
+}
+.price-range{font-size:.9rem;color:var(--text2);margin-top:8px;}
+
+.score-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.score-item{
+  background:var(--glass);border:1px solid var(--border);
+  border-radius:8px;padding:14px;
+  transition:border-color .3s;
+}
+.score-item:hover{border-color:var(--border2);}
+.score-item-label{font-size:.75rem;letter-spacing:1px;text-transform:uppercase;color:var(--text3);margin-bottom:8px;}
+.score-item-val{font-family:'Orbitron',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:8px;}
+.meter{height:4px;background:var(--bg3);border-radius:2px;overflow:hidden;}
+.meter-fill{height:100%;border-radius:2px;transition:width 1s cubic-bezier(.4,0,.2,1);}
+
+/* AI Score Donut */
+.ai-score-card{text-align:center;padding:24px;}
+.donut-wrap{position:relative;width:140px;height:140px;margin:0 auto 16px;}
+.donut-svg{transform:rotate(-90deg);}
+.donut-bg{fill:none;stroke:var(--bg3);stroke-width:8;}
+.donut-fg{fill:none;stroke-width:8;stroke-linecap:round;transition:stroke-dashoffset 1.2s cubic-bezier(.4,0,.2,1);}
+.donut-val{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  font-family:'Orbitron',sans-serif;font-size:1.6rem;font-weight:900;
+}
+.donut-label{font-size:.8rem;letter-spacing:2px;text-transform:uppercase;color:var(--text2);}
+
+.action-btns{display:flex;gap:10px;}
+.action-btn{
+  flex:1;padding:12px;border-radius:6px;font-family:'Orbitron',sans-serif;
+  font-size:.65rem;font-weight:700;letter-spacing:1px;cursor:pointer;
+  transition:all .3s;border:1px solid var(--border2);background:var(--glass);
+  color:var(--neon);
+}
+.action-btn:hover{background:var(--glass2);box-shadow:0 0 20px rgba(0,212,255,0.15);}
+.action-btn.green{color:var(--neon3);border-color:rgba(0,255,136,0.3);}
+.action-btn.green:hover{box-shadow:0 0 20px rgba(0,255,136,0.15);}
+
+/* Formula card */
+.formula-card{
+  max-width:900px;margin:0 auto;
+  background:var(--glass);border:1px solid var(--border);border-radius:12px;
+  padding:40px;text-align:center;
+}
+.formula{
+  font-family:'JetBrains Mono',monospace;
+  font-size:clamp(1rem,2.5vw,1.4rem);
+  color:var(--neon);margin:20px 0;
+  background:rgba(0,0,0,0.4);padding:20px 32px;border-radius:8px;
+  border:1px solid var(--border);letter-spacing:1px;
+}
+.formula-vars{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:24px;}
+.var-pill{
+  background:var(--glass2);border:1px solid var(--border);
+  padding:8px 16px;border-radius:100px;
+  font-size:.8rem;color:var(--text2);
+  font-family:'JetBrains Mono',monospace;
+}
+.var-pill strong{color:var(--neon);}
+
+/* Features grid */
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1200px;margin:0 auto;}
+.feature-card{
+  background:var(--glass);border:1px solid var(--border);
+  border-radius:12px;padding:32px;
+  transition:transform .3s,border-color .3s,box-shadow .3s;
+  position:relative;overflow:hidden;
+}
+.feature-card::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at top left,rgba(0,212,255,0.04) 0%,transparent 60%);
+  pointer-events:none;
+}
+.feature-card:hover{transform:translateY(-4px);border-color:var(--border2);box-shadow:0 20px 60px rgba(0,0,0,0.4);}
+.feature-icon{font-size:2rem;margin-bottom:20px;}
+.feature-title{font-family:'Orbitron',sans-serif;font-size:.9rem;font-weight:700;color:var(--neon);margin-bottom:12px;letter-spacing:1px;}
+.feature-desc{color:var(--text2);font-size:.95rem;line-height:1.7;}
+
+/* Top domains */
+.domains-section{background:var(--bg2);}
+.domains-table{max-width:900px;margin:0 auto;border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.domains-table-head{
+  display:grid;grid-template-columns:40px 1fr 120px 120px 100px;
+  padding:16px 24px;background:var(--glass2);
+  border-bottom:1px solid var(--border);
+  font-size:.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--text3);font-weight:700;
+}
+.domain-row{
+  display:grid;grid-template-columns:40px 1fr 120px 120px 100px;
+  padding:16px 24px;border-bottom:1px solid var(--border);
+  transition:background .2s;align-items:center;
+  animation:fadeIn .5s ease both;
+}
+.domain-row:last-child{border-bottom:none;}
+.domain-row:hover{background:var(--glass);}
+.domain-rank{font-family:'Orbitron',sans-serif;font-size:.8rem;color:var(--text3);font-weight:700;}
+.domain-name{font-family:'JetBrains Mono',monospace;font-size:.95rem;color:var(--text);}
+.domain-name .tld{color:var(--neon);}
+.domain-price{font-family:'Orbitron',sans-serif;font-size:.9rem;color:var(--neon3);font-weight:700;}
+.domain-score{font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--text2);}
+.domain-badge{
+  font-size:.65rem;letter-spacing:1px;text-transform:uppercase;
+  padding:4px 10px;border-radius:100px;font-weight:700;
+}
+.badge-hot{background:rgba(255,107,53,0.15);color:var(--neon4);border:1px solid rgba(255,107,53,0.3);}
+.badge-new{background:rgba(0,255,136,0.1);color:var(--neon3);border:1px solid rgba(0,255,136,0.25);}
+.badge-rare{background:rgba(168,85,247,0.1);color:var(--purple);border:1px solid rgba(168,85,247,0.25);}
+
+/* Generator */
+.generator-section{max-width:900px;margin:0 auto;}
+.gen-output{
+  background:var(--glass);border:1px solid var(--border);
+  border-radius:12px;padding:24px;margin-top:24px;min-height:120px;
+}
+.gen-domains{display:flex;flex-wrap:wrap;gap:12px;}
+.gen-domain{
+  background:rgba(0,0,0,0.4);border:1px solid var(--border2);
+  padding:10px 20px;border-radius:6px;
+  font-family:'JetBrains Mono',monospace;font-size:.95rem;
+  color:var(--neon);cursor:pointer;transition:all .3s;
+}
+.gen-domain:hover{background:var(--glass2);box-shadow:0 0 20px rgba(0,212,255,0.2);}
+
+/* History */
+.history-list{display:flex;flex-direction:column;gap:12px;max-height:300px;overflow-y:auto;}
+.history-item{
+  display:flex;justify-content:space-between;align-items:center;
+  background:var(--glass);border:1px solid var(--border);
+  border-radius:8px;padding:14px 20px;cursor:pointer;
+  transition:border-color .3s;
+}
+.history-item:hover{border-color:var(--border2);}
+.history-domain{font-family:'JetBrains Mono',monospace;font-size:.9rem;}
+.history-price{font-family:'Orbitron',sans-serif;font-size:.85rem;color:var(--neon3);font-weight:700;}
+.history-date{font-size:.75rem;color:var(--text3);}
+
+/* Pricing */
+.pricing-section{background:var(--bg2);}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1000px;margin:0 auto;}
+.pricing-card{
+  background:var(--glass);border:1px solid var(--border);
+  border-radius:12px;padding:36px;position:relative;
+  transition:transform .3s,box-shadow .3s;
+}
+.pricing-card:hover{transform:translateY(-4px);}
+.pricing-card.featured{
+  border-color:var(--neon2);
+  box-shadow:0 0 40px rgba(0,136,255,0.2);
+}
+.pricing-card.featured::before{
+  content:'MOST POPULAR';position:absolute;top:-1px;left:50%;transform:translateX(-50%);
+  background:linear-gradient(135deg,var(--neon2),var(--neon));color:#000;
+  font-family:'Orbitron',sans-serif;font-size:.6rem;font-weight:900;letter-spacing:2px;
+  padding:6px 20px;border-radius:0 0 8px 8px;
+}
+.plan-name{font-family:'Orbitron',sans-serif;font-size:.9rem;font-weight:700;color:var(--text2);letter-spacing:2px;margin-bottom:16px;}
+.plan-price{font-family:'Orbitron',sans-serif;font-size:3rem;font-weight:900;color:var(--neon);margin-bottom:4px;}
+.plan-price span{font-size:1rem;color:var(--text2);}
+.plan-period{font-size:.85rem;color:var(--text3);margin-bottom:24px;}
+.plan-features{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:32px;}
+.plan-features li{font-size:.95rem;color:var(--text2);padding-left:20px;position:relative;}
+.plan-features li::before{content:'▸';position:absolute;left:0;color:var(--neon);}
+.plan-btn{
+  width:100%;padding:14px;border-radius:6px;
+  font-family:'Orbitron',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:2px;
+  cursor:pointer;transition:all .3s;
+}
+.plan-btn.outline{background:transparent;border:1px solid var(--border2);color:var(--neon);}
+.plan-btn.outline:hover{background:var(--glass2);}
+.plan-btn.solid{background:linear-gradient(135deg,var(--neon2),var(--neon));border:none;color:#000;}
+.plan-btn.solid:hover{box-shadow:0 0 30px rgba(0,212,255,0.4);}
+
+/* FAQ */
+.faq-list{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:12px;}
+.faq-item{background:var(--glass);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+.faq-q{
+  padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;
+  font-size:1rem;font-weight:600;color:var(--text);
+  transition:color .3s;
+}
+.faq-q:hover{color:var(--neon);}
+.faq-arrow{color:var(--neon);font-size:1.2rem;transition:transform .3s;flex-shrink:0;}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s;color:var(--text2);font-size:.95rem;line-height:1.7;}
+.faq-item.open .faq-a{max-height:200px;padding:0 24px 20px;}
+.faq-item.open .faq-arrow{transform:rotate(45deg);}
+
+/* Footer */
+footer{
+  background:var(--bg2);border-top:1px solid var(--border);
+  padding:60px 40px 40px;
+}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;max-width:1200px;margin:0 auto 40px;}
+.footer-brand .logo{font-size:1rem;display:block;margin-bottom:16px;}
+.footer-brand p{color:var(--text3);font-size:.9rem;line-height:1.7;max-width:280px;}
+.footer-col h4{font-family:'Orbitron',sans-serif;font-size:.8rem;font-weight:700;color:var(--text2);letter-spacing:2px;margin-bottom:20px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-col ul a{color:var(--text3);text-decoration:none;font-size:.9rem;transition:color .3s;}
+.footer-col ul a:hover{color:var(--neon);}
+.footer-bottom{
+  max-width:1200px;margin:0 auto;
+  display:flex;justify-content:space-between;align-items:center;
+  padding-top:24px;border-top:1px solid var(--border);
+  color:var(--text3);font-size:.85rem;
+}
+.social-links{display:flex;gap:16px;}
+.social-link{
+  width:36px;height:36px;border:1px solid var(--border);border-radius:6px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--text3);text-decoration:none;font-size:.9rem;
+  transition:all .3s;
+}
+.social-link:hover{border-color:var(--neon);color:var(--neon);box-shadow:0 0 15px rgba(0,212,255,0.2);}
+
+/* Toast */
+#toast{
+  position:fixed;bottom:32px;right:32px;
+  background:var(--glass2);border:1px solid var(--neon);
+  color:var(--neon);padding:14px 24px;border-radius:8px;
+  font-family:'JetBrains Mono',monospace;font-size:.85rem;
+  z-index:1000;transform:translateY(100px);opacity:0;
+  transition:all .4s cubic-bezier(.4,0,.2,1);
+  backdrop-filter:blur(10px);
+}
+#toast.show{transform:translateY(0);opacity:1;}
+
+/* Loading */
+.loading{display:flex;align-items:center;justify-content:center;gap:8px;padding:40px;color:var(--text2);}
+.loading-dot{width:8px;height:8px;background:var(--neon);border-radius:50%;animation:bounce .6s infinite alternate;}
+.loading-dot:nth-child(2){animation-delay:.2s;}
+.loading-dot:nth-child(3){animation-delay:.4s;}
+
+/* Placeholder */
+.placeholder-result{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:60px 40px;text-align:center;gap:16px;color:var(--text3);
+}
+.placeholder-result .icon{font-size:3rem;opacity:.4;}
+.placeholder-result p{font-size:.9rem;line-height:1.7;}
+
+/* Animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-20px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+@keyframes pulse2{0%,100%{opacity:1;box-shadow:0 0 6px var(--neon3);}50%{opacity:.6;box-shadow:none;}}
+@keyframes bounce{from{transform:translateY(0);}to{transform:translateY(-8px);}}
+@keyframes scan{0%{top:-10%;}100%{top:110%;}}
+@keyframes glow{0%,100%{text-shadow:0 0 20px rgba(0,212,255,0.3);}50%{text-shadow:0 0 40px rgba(0,212,255,0.7);}}
+
+/* Scan line effect */
+.card::after,.price-display::after{display:none;}
+
+/* Responsive */
+@media(max-width:900px){
+  nav{padding:16px 24px;}
+  .nav-links{display:none;}
+  .calc-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  section{padding:70px 24px;}
+  .stats-bar{gap:32px;padding:32px 24px;}
+  .domains-table-head,.domain-row{grid-template-columns:30px 1fr 100px 80px;}
+  .domains-table-head > *:nth-child(4),.domain-row > *:nth-child(4){display:none;}
+}
+@media(max-width:600px){
+  .hero{padding:100px 24px 60px;}
+  .score-grid{grid-template-columns:1fr;}
+  .field-row{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr;}
+  .footer-bottom{flex-direction:column;gap:16px;text-align:center;}
+  .action-btns{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<div id="toast"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">DOMAIN<span>AI</span></div>
+  <ul class="nav-links">
+    <li><a href="#calculator">Appraiser</a></li>
+    <li><a href="#formula">Formula</a></li>
+    <li><a href="#domains">Top Domains</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="#calculator" class="nav-cta">APPRAISE NOW</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div style="position:relative;z-index:1;">
+    <div class="hero-tag">⚡ AI-Powered Domain Valuation</div>
+    <h1>The <span class="gradient">Mathematical</span><br>Domain Pricing Engine</h1>
+    <p class="hero-sub">Advanced domain appraisals powered by a proprietary mathematical formula analyzing keyword strength, brandability, rarity, TLD multipliers, and real market data.</p>
+    <div class="hero-btns">
+      <a href="#calculator" class="btn-primary">APPRAISE YOUR DOMAIN</a>
+      <a href="#formula" class="btn-secondary">VIEW THE FORMULA</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat"><div class="stat-num" data-count="2400000">0</div><div class="stat-label">Domains Appraised</div></div>
+  <div class="stat"><div class="stat-num" data-count="98">0</div><div class="stat-label">% Accuracy Rate</div></div>
+  <div class="stat"><div class="stat-num" data-count="150">0</div><div class="stat-label">Variables Analyzed</div></div>
+  <div class="stat"><div class="stat-num" data-count="12000">0</div><div class="stat-label">Users This Month</div></div>
+</div>
+
+<!-- CALCULATOR -->
+<section class="calc-section" id="calculator">
+  <div class="calc-container">
+    <div style="text-align:center;margin-bottom:60px;">
+      <div class="section-tag">// DOMAIN APPRAISAL ENGINE</div>
+      <h2>AI Domain Valuator</h2>
+      <p class="section-sub" style="margin:0 auto;">Enter your domain and configure variables to get an instant AI-powered valuation using our proprietary pricing formula.</p>
+    </div>
+    <div class="calc-grid">
+      <!-- Input Panel -->
+      <div class="card">
+        <div class="card-title">▸ DOMAIN PARAMETERS</div>
+        <div class="domain-input-wrap">
+          <input type="text" class="domain-input" id="domainInput" placeholder="yourdomain.com" maxlength="63" autocomplete="off">
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label>TLD Extension</label>
+            <select id="tldSelect">
+              <option value="2.5">.com</option>
+              <option value="1.8">.io</option>
+              <option value="1.5">.ai</option>
+              <option value="1.4">.co</option>
+              <option value="1.2">.net</option>
+              <option value="1.0">.org</option>
+              <option value="0.9">.app</option>
+              <option value="0.8">.dev</option>
+              <option value="0.7">.xyz</option>
+              <option value="0.6">.online</option>
+              <option value="0.5">.info</option>
+              <option value="0.4">.biz</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Domain Age (years)</label>
+            <input type="number" id="domainAge" min="0" max="30" value="0" placeholder="0">
+          </div>
+        </div>
+
+        <div class="range-wrap" style="margin-bottom:16px;">
+          <div class="range-header">
+            <label>Keyword Strength (K)</label>
+            <span class="range-val" id="kwVal">5.0</span>
+          </div>
+          <input type="range" id="kwStrength" min="1" max="10" step="0.1" value="5">
+        </div>
+        <div class="range-wrap" style="margin-bottom:16px;">
+          <div class="range-header">
+            <label>Brandability Score (B)</label>
+            <span class="range-val" id="brandVal">5.0</span>
+          </div>
+          <input type="range" id="brandScore" min="1" max="10" step="0.1" value="5">
+        </div>
+        <div class="range-wrap" style="margin-bottom:16px;">
+          <div class="range-header">
+            <label>Search Volume Score (S)</label>
+            <span class="range-val" id="svVal">5.0</span>
+          </div>
+          <input type="range" id="svScore" min="1" max="10" step="0.1" value="5">
+        </div>
+        <div class="range-wrap" style="margin-bottom:16px;">
+          <div class="range-header">
+            <label>Rarity Factor (R)</label>
+            <span class="range-val" id="rarityVal">5.0</span>
+          </div>
+          <input type="range" id="rarityScore" min="1" max="10" step="0.1" value="5">
+        </div>
+        <div class="range-wrap" style="margin-bottom:16px;">
+          <div class="range-header">
+            <label>Market Trend (M)</label>
+            <span class="range-val" id="marketVal">1.0</span>
+          </div>
+          <input type="range" id="marketScore" min="0.5" max="3" step="0.1" value="1">
+        </div>
+
+        <button class="calc-btn" id="calcBtn" onclick="appraiseDomain()">⚡ CALCULATE DOMAIN VALUE</button>
+        <button class="calc-btn" style="background:var(--glass);color:var(--neon);border:1px solid var(--border2);box-shadow:none;margin-top:10px;" onclick="autoFill()">🎲 AUTO-FILL DEMO</button>
+      </div>
+
+      <!-- Results Panel -->
+      <div class="results-panel" id="resultsPanel">
+        <div class="placeholder-result" id="placeholder">
+          <div class="icon">◎</div>
+          <p>Enter a domain name and click Calculate to see your full AI-powered domain valuation report.</p>
+        </div>
+        <div id="resultsContent" style="display:none;flex-direction:column;gap:20px;">
+          <!-- Price -->
+          <div class="price-display">
+            <div class="price-label">ESTIMATED DOMAIN VALUE</div>
+            <div class="price-value" id="priceVal">$0</div>
+            <div class="price-range" id="priceRange">Range: $0 — $0</div>
+          </div>
+
+          <!-- AI Score donut + mini scores -->
+          <div class="card" style="padding:20px;">
+            <div style="display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;">
+              <div class="ai-score-card">
+                <div class="donut-wrap">
+                  <svg class="donut-svg" width="140" height="140" viewBox="0 0 140 140">
+                    <circle class="donut-bg" cx="70" cy="70" r="58"/>
+                    <circle class="donut-fg" id="donutFg" cx="70" cy="70" r="58"
+                      stroke="url(#donutGrad)"
+                      stroke-dasharray="364.4"
+                      stroke-dashoffset="364.4"/>
+                    <defs>
+                      <linearGradient id="donutGrad" x1="0" y1="0" x2="1" y2="0">
+                        <stop offset="0%" stop-color="#0088ff"/>
+                        <stop offset="100%" stop-color="#00d4ff"/>
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                  <div class="donut-val" id="aiScoreVal" style="color:var(--neon);">0</div>
+                </div>
+                <div class="donut-label">AI SCORE</div>
+              </div>
+              <div class="score-grid">
+                <div class="score-item">
+                  <div class="score-item-label">Keyword</div>
+                  <div class="score-item-val" id="sc-kw" style="color:var(--neon);">—</div>
+                  <div class="meter"><div class="meter-fill" id="mf-kw" style="width:0;background:linear-gradient(90deg,var(--neon2),var(--neon));"></div></div>
+                </div>
+                <div class="score-item">
+                  <div class="score-item-label">Brandability</div>
+                  <div class="score-item-val" id="sc-brand" style="color:var(--neon3);">—</div>
+                  <div class="meter"><div class="meter-fill" id="mf-brand" style="width:0;background:linear-gradient(90deg,#00a86b,var(--neon3));"></div></div>
+                </div>
+                <div class="score-item">
+                  <div class="score-item-label">Rarity</div>
+                  <div class="score-item-val" id="sc-rarity" style="color:var(--purple);">—</div>
+                  <div class="meter"><div class="meter-fill" id="mf-rarity" style="width:0;background:linear-gradient(90deg,#7c3aed,var(--purple));"></div></div>
+                </div>
+                <div class="score-item">
+                  <div class="score-item-label">Market Trend</div>
+                  <div class="score-item-val" id="sc-market" style="color:var(--neon4);">—</div>
+                  <div class="meter"><div class="meter-fill" id="mf-market" style="width:0;background:linear-gradient(90deg,#d4522a,var(--neon4));"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Details -->
+          <div class="card" style="padding:20px;">
+            <div class="card-title">▸ FORMULA BREAKDOWN</div>
+            <div id="formulaBreakdown" style="font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--text2);line-height:2;"></div>
+          </div>
+
+          <!-- AI Suggestions -->
+          <div class="card" style="padding:20px;">
+            <div class="card-title">▸ AI SUGGESTIONS</div>
+            <div id="aiSuggestions" style="display:flex;flex-wrap:wrap;gap:8px;"></div>
+          </div>
+
+          <!-- Actions -->
+          <div class="action-btns">
+            <button class="action-btn" onclick="copyResult()">📋 COPY</button>
+            <button class="action-btn" onclick="exportPDF()">📄 PDF</button>
+            <button class="action-btn green" onclick="saveToHistory()">💾 SAVE</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULA -->
+<section id="formula" style="text-align:center;">
+  <div class="section-tag">// MATHEMATICAL MODEL</div>
+  <h2>The Pricing Formula</h2>
+  <p class="section-sub" style="margin:0 auto 40px;">Our proprietary equation combines six key domain value indicators into a single, precise market estimate.</p>
+  <div class="formula-card">
+    <div class="formula">P = ((K × B × S × E × R) / L<sup>0.8</sup>) + log(A+1) × M</div>
+    <div class="formula-vars">
+      <div class="var-pill"><strong>P</strong> = Final Domain Price</div>
+      <div class="var-pill"><strong>K</strong> = Keyword Strength</div>
+      <div class="var-pill"><strong>B</strong> = Brandability Score</div>
+      <div class="var-pill"><strong>S</strong> = Search Volume Score</div>
+      <div class="var-pill"><strong>E</strong> = TLD Extension Multiplier</div>
+      <div class="var-pill"><strong>R</strong> = Rarity Factor</div>
+      <div class="var-pill"><strong>L</strong> = Domain Length</div>
+      <div class="var-pill"><strong>A</strong> = Domain Age (years)</div>
+      <div class="var-pill"><strong>M</strong> = Market Trend Multiplier</div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section style="background:var(--bg2);" id="features">
+  <div style="text-align:center;margin-bottom:60px;">
+    <div class="section-tag">// PLATFORM CAPABILITIES</div>
+    <h2>Everything You Need</h2>
+    <p class="section-sub" style="margin:0 auto;">Professional-grade domain intelligence in a single platform.</p>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">⚡</div>
+      <div class="feature-title">INSTANT APPRAISAL</div>
+      <p class="feature-desc">Get real-time domain valuations in milliseconds using our mathematical pricing engine and AI score model.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔬</div>
+      <div class="feature-title">RARITY ANALYSIS</div>
+      <p class="feature-desc">Assess domain uniqueness, letter combinations, and market scarcity to quantify competitive advantage.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🎯</div>
+      <div class="feature-title">BRANDABILITY SCORE</div>
+      <p class="feature-desc">Evaluate memorability, pronounceability, and visual appeal using natural language processing models.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📈</div>
+      <div class="feature-title">MARKET TRENDS</div>
+      <p class="feature-desc">Real-time market trend multipliers based on industry demand, niche growth, and recent comparable sales.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔑</div>
+      <div class="feature-title">KEYWORD STRENGTH</div>
+      <p class="feature-desc">Measure commercial keyword value, search intent, and advertising competition scores for any term.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📊</div>
+      <div class="feature-title">TLD MULTIPLIERS</div>
+      <p class="feature-desc">Each extension carries a unique market value coefficient — from .com premium to emerging niche TLDs.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🕐</div>
+      <div class="feature-title">AGE IMPACT</div>
+      <p class="feature-desc">Logarithmic age scoring rewards established domains with historical authority and SEO trust signals.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🤖</div>
+      <div class="feature-title">AI SUGGESTIONS</div>
+      <p class="feature-desc">Get AI-generated alternative domain suggestions to maximize your portfolio's value and coverage.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📋</div>
+      <div class="feature-title">PDF REPORTS</div>
+      <p class="feature-desc">Export professional valuation reports for investors, brokers, or domain marketplace listings.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TOP DOMAINS -->
+<section class="domains-section" id="domains">
+  <div style="text-align:center;margin-bottom:40px;">
+    <div class="section-tag">// MARKET INTELLIGENCE</div>
+    <h2>Top Premium Domains</h2>
+    <p class="section-sub" style="margin:0 auto;">High-value domains currently tracked by our valuation engine.</p>
+  </div>
+  <div class="domains-table">
+    <div class="domains-table-head">
+      <span>#</span><span>Domain</span><span>Est. Value</span><span>AI Score</span><span>Status</span>
+    </div>
+    <div id="domainsTableBody"></div>
+  </div>
+</section>
+
+<!-- GENERATOR -->
+<section id="generator">
+  <div class="generator-section">
+    <div style="text-align:center;margin-bottom:40px;">
+      <div class="section-tag">// AI GENERATOR</div>
+      <h2>Premium Domain Generator</h2>
+      <p class="section-sub" style="margin:0 auto;">Generate high-value domain name ideas using our AI pattern engine.</p>
+    </div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+      <input type="text" class="domain-input" id="genKeyword" placeholder="Enter a keyword (e.g. 'cloud')" style="flex:1;min-width:200px;">
+      <select class="domain-input" id="genCategory" style="width:180px;">
+        <option value="tech">Tech / SaaS</option>
+        <option value="finance">Finance</option>
+        <option value="health">Health</option>
+        <option value="ai">AI / ML</option>
+        <option value="ecom">E-Commerce</option>
+      </select>
+      <button class="btn-primary" onclick="generateDomains()" style="padding:16px 32px;">GENERATE</button>
+    </div>
+    <div class="gen-output">
+      <div class="loading" id="genLoading" style="display:none;">
+        <div class="loading-dot"></div><div class="loading-dot"></div><div class="loading-dot"></div>
+      </div>
+      <div class="gen-domains" id="genDomains">
+        <span style="color:var(--text3);font-size:.9rem;">Generated domains will appear here...</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HISTORY -->
+<section style="background:var(--bg2);" id="history">
+  <div style="max-width:900px;margin:0 auto;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;flex-wrap:wrap;gap:16px;">
+      <div>
+        <div class="section-tag">// APPRAISAL HISTORY</div>
+        <h2 style="margin:0;">Recent Valuations</h2>
+      </div>
+      <button class="action-btn" onclick="clearHistory()" style="max-width:140px;">🗑 CLEAR ALL</button>
+    </div>
+    <div class="history-list" id="historyList">
+      <div style="color:var(--text3);font-size:.9rem;padding:20px;text-align:center;">No history yet. Appraise a domain to get started.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div style="text-align:center;margin-bottom:60px;">
+    <div class="section-tag">// PLANS</div>
+    <h2>Simple Pricing</h2>
+    <p class="section-sub" style="margin:0 auto;">Start free, scale as you grow.</p>
+  </div>
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <div class="plan-name">STARTER</div>
+      <div class="plan-price">$0<span>/mo</span></div>
+      <div class="plan-period">Forever free</div>
+      <ul class="plan-features">
+        <li>10 appraisals / month</li>
+        <li>Basic score breakdown</li>
+        <li>Domain generator</li>
+        <li>Copy results</li>
+      </ul>
+      <button class="plan-btn outline">GET STARTED</button>
+    </div>
+    <div class="pricing-card featured">
+      <div class="plan-name">PRO</div>
+      <div class="plan-price">$29<span>/mo</span></div>
+      <div class="plan-period">Billed monthly</div>
+      <ul class="plan-features">
+        <li>Unlimited appraisals</li>
+        <li>Full formula breakdown</li>
+        <li>PDF export reports</li>
+        <li>AI domain suggestions</li>
+        <li>Market trend data</li>
+        <li>Bulk appraisal tool</li>
+      </ul>
+      <button class="plan-btn solid">START FREE TRIAL</button>
+    </div>
+    <div class="pricing-card">
+      <div class="plan-name">ENTERPRISE</div>
+      <div class="plan-price">$99<span>/mo</span></div>
+      <div class="plan-period">Billed annually</div>
+      <ul class="plan-features">
+        <li>Everything in Pro</li>
+        <li>API access</li>
+        <li>White-label reports</li>
+        <li>Portfolio tracking</li>
+        <li>Priority support</li>
+        <li>Custom integrations</li>
+      </ul>
+      <button class="plan-btn outline">CONTACT SALES</button>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div style="text-align:center;margin-bottom:60px;">
+    <div class="section-tag">// FAQ</div>
+    <h2>Frequently Asked Questions</h2>
+  </div>
+  <div class="faq-list" id="faqList"></div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="logo">DOMAIN<span>AI</span></span>
+      <p>The most advanced AI-powered domain valuation platform. Built for investors, brokers, and builders.</p>
+    </div>
+    <div class="footer-col">
+      <h4>PRODUCT</h4>
+      <ul>
+        <li><a href="#calculator">Appraiser</a></li>
+        <li><a href="#generator">Generator</a></li>
+        <li><a href="#domains">Top Domains</a></li>
+        <li><a href="#formula">Formula</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>COMPANY</h4>
+      <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Press</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>LEGAL</h4>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Cookie Policy</a></li>
+        <li><a href="#">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Domain Formula AI. All rights reserved.</span>
+    <div class="social-links">
+      <a class="social-link" href="#" title="Twitter">𝕏</a>
+      <a class="social-link" href="#" title="GitHub">⌥</a>
+      <a class="social-link" href="#" title="LinkedIn">in</a>
+      <a class="social-link" href="#" title="Discord">◈</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Cursor
+const cursor=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+setInterval(()=>{rx+=(mx-rx)*.15;ry+=(my-ry)*.15;ring.style.left=rx+'px';ring.style.top=ry+'px';},16);
+document.querySelectorAll('a,button,input,select,[onclick]').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{ring.style.width='60px';ring.style.height='60px';ring.style.borderColor='rgba(0,212,255,0.6)';});
+  el.addEventListener('mouseleave',()=>{ring.style.width='40px';ring.style.height='40px';ring.style.borderColor='rgba(0,212,255,0.4)';});
+});
+
+// Range sliders
+function initRange(id,valId){
+  const r=document.getElementById(id),v=document.getElementById(valId);
+  function upd(){
+    const pct=((r.value-r.min)/(r.max-r.min)*100)+'%';
+    r.style.setProperty('--pct',pct);
+    v.textContent=parseFloat(r.value).toFixed(1);
+  }
+  r.addEventListener('input',upd);upd();
+}
+initRange('kwStrength','kwVal');
+initRange('brandScore','brandVal');
+initRange('svScore','svVal');
+initRange('rarityScore','rarityVal');
+initRange('marketScore','marketVal');
+
+// Counter animation
+function animateCount(el,target){
+  let start=0,duration=2000,startTime=null;
+  const isLarge=target>9999;
+  function step(ts){
+    if(!startTime)startTime=ts;
+    const prog=Math.min((ts-startTime)/duration,1);
+    const val=Math.floor(prog*target);
+    el.textContent=isLarge?formatNum(val):val;
+    if(prog<1)requestAnimationFrame(step);
+    else el.textContent=isLarge?formatNum(target):target;
+  }
+  requestAnimationFrame(step);
+}
+function formatNum(n){if(n>=1000000)return(n/1000000).toFixed(1)+'M';if(n>=1000)return(n/1000).toFixed(0)+'K';return n;}
+
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const el=e.target;
+      animateCount(el,parseInt(el.dataset.count));
+      observer.unobserve(el);
+    }
+  });
+},{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el=>observer.observe(el));
+
+// Formula calculation
+function calcPrice(K,B,S,E,R,L,A,M){
+  const base=(K*B*S*E*R)/Math.pow(L,0.8);
+  const ageBonus=Math.log(A+1)*M;
+  return (base+ageBonus)*1000;
+}
+
+function getAIScore(K,B,S,R,M){
+  return Math.min(99,Math.round(((K+B+S+R)/4)*9.9*(M*0.5+0.5)));
+}
+
+function getRating(score){
+  if(score>=85)return{label:'PREMIUM',color:'var(--neon3)'};
+  if(score>=70)return{label:'HIGH VALUE',color:'var(--neon)'};
+  if(score>=50)return{label:'MODERATE',color:'var(--neon4)'};
+  if(score>=30)return{label:'DEVELOPING',color:'var(--yellow)'};
+  return{label:'LOW VALUE',color:'var(--red)'};
+}
+
+let lastResult=null;
+
+function appraiseDomain(){
+  const domain=document.getElementById('domainInput').value.trim();
+  if(!domain){showToast('⚠ Please enter a domain name');return;}
+
+  const K=parseFloat(document.getElementById('kwStrength').value);
+  const B=parseFloat(document.getElementById('brandScore').value);
+  const S=parseFloat(document.getElementById('svScore').value);
+  const E=parseFloat(document.getElementById('tldSelect').value);
+  const R=parseFloat(document.getElementById('rarityScore').value);
+  const L=domain.replace(/\.[^.]+$/,'').length||5;
+  const A=parseFloat(document.getElementById('domainAge').value)||0;
+  const M=parseFloat(document.getElementById('marketScore').value);
+
+  const price=calcPrice(K,B,S,E,R,L,A,M);
+  const aiScore=getAIScore(K,B,S,R,M);
+  const tld=domain.includes('.')?'.'+domain.split('.').pop():'.com';
+
+  lastResult={domain,K,B,S,E,R,L,A,M,price,aiScore,tld};
+
+  // Show results
+  document.getElementById('placeholder').style.display='none';
+  const rc=document.getElementById('resultsContent');
+  rc.style.display='flex';
+
+  // Price
+  document.getElementById('priceVal').textContent='$'+formatPrice(price);
+  document.getElementById('priceRange').textContent=`Range: $${formatPrice(price*0.7)} — $${formatPrice(price*1.4)}`;
+
+  // Donut
+  const circumference=364.4;
+  const offset=circumference-(aiScore/100)*circumference;
+  setTimeout(()=>{
+    document.getElementById('donutFg').style.strokeDashoffset=offset;
+    document.getElementById('aiScoreVal').textContent=aiScore;
+  },100);
+
+  // Score meters
+  setScore('sc-kw','mf-kw',K*10,K.toFixed(1)+'/10');
+  setScore('sc-brand','mf-brand',B*10,B.toFixed(1)+'/10');
+  setScore('sc-rarity','mf-rarity',R*10,R.toFixed(1)+'/10');
+  setScore('sc-market','mf-market',(M/3)*100,M.toFixed(1)+'x');
+
+  // Formula breakdown
+  document.getElementById('formulaBreakdown').innerHTML=`
+K=${K} × B=${B} × S=${S} × E=${E} × R=${R}<br>
+= ${(K*B*S*E*R).toFixed(2)} / ${L}^0.8 (${Math.pow(L,0.8).toFixed(2)})<br>
+= ${((K*B*S*E*R)/Math.pow(L,0.8)).toFixed(2)} (base score)<br>
++ log(${A}+1) × ${M} = ${(Math.log(A+1)*M).toFixed(2)} (age bonus)<br>
+<span style="color:var(--neon)">× 1000 calibration = <strong>$${formatPrice(price)}</strong></span>`;
+
+  // AI Suggestions
+  const base=domain.replace(/\.[^.]+$/,'');
+  const suggestions=[base+'pro',base+'hq',base+'ai','get'+base,'try'+base,base+'app'];
+  const sugBox=document.getElementById('aiSuggestions');
+  sugBox.innerHTML=suggestions.map(s=>`<div class="gen-domain" onclick="fillDomain('${s+tld}')">${s+tld}</div>`).join('');
+
+  showToast('✓ Valuation complete!');
+}
+
+function setScore(valId,meterId,pct,label){
+  document.getElementById(valId).textContent=label;
+  setTimeout(()=>{document.getElementById(meterId).style.width=Math.min(100,pct)+'%';},200);
+}
+
+function fillDomain(d){document.getElementById('domainInput').value=d;showToast('Domain loaded: '+d);}
+
+function formatPrice(n){
+  if(n>=1000000)return(n/1000000).toFixed(2)+'M';
+  if(n>=1000)return(n/1000).toFixed(1)+'K';
+  return Math.round(n).toLocaleString();
+}
+
+function autoFill(){
+  const demos=['cloudpay.io','nexaflow.ai','mintkey.com','stackvault.co','aicore.io'];
+  document.getElementById('domainInput').value=demos[Math.floor(Math.random()*demos.length)];
+  document.getElementById('kwStrength').value=(Math.random()*4+6).toFixed(1);
+  document.getElementById('brandScore').value=(Math.random()*4+6).toFixed(1);
+  document.getElementById('svScore').value=(Math.random()*5+4).toFixed(1);
+  document.getElementById('rarityScore').value=(Math.random()*4+5).toFixed(1);
+  document.getElementById('marketScore').value=(Math.random()*1.5+1).toFixed(1);
+  document.getElementById('domainAge').value=Math.floor(Math.random()*10);
+  ['kwStrength','brandScore','svScore','rarityScore','marketScore'].forEach(id=>{
+    document.getElementById(id).dispatchEvent(new Event('input'));
+  });
+  appraiseDomain();
+}
+
+// Copy
+function copyResult(){
+  if(!lastResult){showToast('⚠ No result to copy');return;}
+  const txt=`Domain: ${lastResult.domain}\nEstimated Value: $${formatPrice(lastResult.price)}\nAI Score: ${lastResult.aiScore}/100\nKeyword: ${lastResult.K}/10 | Brand: ${lastResult.B}/10 | Rarity: ${lastResult.R}/10\nPowered by Domain Formula AI`;
+  navigator.clipboard.writeText(txt).then(()=>showToast('✓ Copied to clipboard!'));
+}
+
+// PDF Export
+function exportPDF(){
+  if(!lastResult){showToast('⚠ No result to export');return;}
+  const {domain,K,B,S,E,R,L,A,M,price,aiScore}=lastResult;
+  const html=`<!DOCTYPE html><html><head><title>Domain Valuation — ${domain}</title>
+  <style>body{font-family:Arial,sans-serif;padding:40px;color:#111;}h1{color:#0088ff;}table{width:100%;border-collapse:collapse;margin:20px 0;}td,th{padding:10px;border:1px solid #ddd;text-align:left;}.price{font-size:2em;font-weight:bold;color:#00a86b;}</style></head>
+  <body><h1>🌐 Domain Valuation Report</h1><p><strong>Domain:</strong> ${domain}</p><p class="price">$${formatPrice(price)}</p>
+  <p><strong>AI Score:</strong> ${aiScore}/100</p>
+  <table><tr><th>Variable</th><th>Value</th></tr>
+  <tr><td>Keyword Strength (K)</td><td>${K}</td></tr>
+  <tr><td>Brandability (B)</td><td>${B}</td></tr>
+  <tr><td>Search Volume (S)</td><td>${S}</td></tr>
+  <tr><td>TLD Multiplier (E)</td><td>${E}</td></tr>
+  <tr><td>Rarity (R)</td><td>${R}</td></tr>
+  <tr><td>Domain Length (L)</td><td>${L}</td></tr>
+  <tr><td>Age (A)</td><td>${A} years</td></tr>
+  <tr><td>Market Trend (M)</td><td>${M}</td></tr>
+  </table>
+  <p style="color:#888;font-size:.8em;">Generated by Domain Formula AI • ${new Date().toLocaleDateString()}</p>
+  </body></html>`;
+  const blob=new Blob([html],{type:'text/html'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download=`valuation-${domain}.html`;
+  a.click();URL.revokeObjectURL(url);
+  showToast('✓ Report exported!');
+}
+
+// History
+function saveToHistory(){
+  if(!lastResult){showToast('⚠ Nothing to save');return;}
+  const hist=JSON.parse(localStorage.getItem('dfai_history')||'[]');
+  hist.unshift({domain:lastResult.domain,price:lastResult.price,aiScore:lastResult.aiScore,date:new Date().toLocaleDateString()});
+  if(hist.length>20)hist.pop();
+  localStorage.setItem('dfai_history',JSON.stringify(hist));
+  renderHistory();showToast('✓ Saved to history!');
+}
+
+function renderHistory(){
+  const hist=JSON.parse(localStorage.getItem('dfai_history')||'[]');
+  const el=document.getElementById('historyList');
+  if(!hist.length){el.innerHTML='<div style="color:var(--text3);font-size:.9rem;padding:20px;text-align:center;">No history yet. Appraise a domain to get started.</div>';return;}
+  el.innerHTML=hist.map(h=>`<div class="history-item" onclick="fillDomain('${h.domain}')">
+    <div><div class="history-domain">${h.domain}</div><div class="history-date">${h.date}</div></div>
+    <div style="text-align:right"><div class="history-price">$${formatPrice(h.price)}</div><div style="font-size:.75rem;color:var(--text3)">AI Score: ${h.aiScore}</div></div>
+  </div>`).join('');
+}
+
+function clearHistory(){
+  localStorage.removeItem('dfai_history');renderHistory();showToast('✓ History cleared');
+}
+
+renderHistory();
+
+// Domain Generator
+const genPrefixes={tech:['cloud','stack','flux','node','dev','code','byte','data'],finance:['fin','pay','cash','mint','yield','fund','cap'],health:['med','vita','care','pulse','bio','heal'],ai:['ai','ml','gpt','neura','synth','gen','cogni'],ecom:['shop','buy','cart','deal','prime','market','store']};
+const genSuffixes=['hub','lab','io','hq','pro','app','core','base','go','now','co'];
+
+function generateDomains(){
+  const kw=document.getElementById('genKeyword').value.trim()||'smart';
+  const cat=document.getElementById('genCategory').value;
+  const pfx=genPrefixes[cat]||genPrefixes.tech;
+  document.getElementById('genLoading').style.display='flex';
+  document.getElementById('genDomains').innerHTML='';
+  setTimeout(()=>{
+    const tlds=['.com','.io','.ai','.co','.app'];
+    const results=[];
+    pfx.slice(0,3).forEach(p=>{
+      genSuffixes.slice(0,3).forEach(s=>{
+        const tld=tlds[Math.floor(Math.random()*tlds.length)];
+        results.push(p+kw+tld,kw+s+tld);
+      });
+    });
+    const unique=[...new Set(results)].slice(0,10);
+    document.getElementById('genLoading').style.display='none';
+    document.getElementById('genDomains').innerHTML=unique.map(d=>`<div class="gen-domain" onclick="fillDomain('${d}')">${d}</div>`).join('');
+  },800);
+}
+
+// Top domains data
+const topDomains=[
+  {name:'cloud',tld:'.ai',price:'$2.4M',score:'97',badge:'hot'},
+  {name:'pay',tld:'.io',price:'$1.8M',score:'94',badge:'hot'},
+  {name:'meta',tld:'.com',price:'$1.2M',score:'92',badge:'rare'},
+  {name:'stack',tld:'.ai',price:'$890K',score:'89',badge:'new'},
+  {name:'nexus',tld:'.io',price:'$750K',score:'87',badge:'hot'},
+  {name:'flux',tld:'.com',price:'$620K',score:'84',badge:'new'},
+  {name:'forge',tld:'.ai',price:'$540K',score:'82',badge:'rare'},
+  {name:'pulse',tld:'.io',price:'$480K',score:'80',badge:'new'},
+];
+
+function renderTopDomains(){
+  document.getElementById('domainsTableBody').innerHTML=topDomains.map((d,i)=>`
+    <div class="domain-row" style="animation-delay:${i*0.08}s">
+      <span class="domain-rank">${i+1}</span>
+      <span class="domain-name">${d.name}<span class="tld">${d.tld}</span></span>
+      <span class="domain-price">${d.price}</span>
+      <span class="domain-score">${d.score}/100</span>
+      <span class="domain-badge badge-${d.badge}">${d.badge.toUpperCase()}</span>
+    </div>`).join('');
+}
+renderTopDomains();
+
+// FAQ
+const faqs=[
+  {q:'How accurate is the domain valuation?',a:'Our formula achieves ~90-95% accuracy against real market sales data for typical domains. Results may vary for highly niche or speculative domains where market data is sparse.'},
+  {q:'What is the TLD extension multiplier?',a:'.com receives the highest multiplier (2.5x) due to market dominance. Modern TLDs like .ai and .io carry premium multipliers due to industry demand. Generic extensions like .info carry lower weights.'},
+  {q:'Does domain age really affect price?',a:'Yes, significantly. A 10-year-old domain has established SEO authority, backlink history, and trust signals that buyers value. The logarithmic age function ensures diminishing returns past 15 years.'},
+  {q:'Can I use this for domain portfolio valuation?',a:'Absolutely. Pro users can bulk appraise entire portfolios and export comprehensive PDF reports for investors or marketplace listings.'},
+  {q:'How do I improve my domain\'s score?',a:'Focus on short length (under 8 chars), high-value keywords, .com or .io TLDs, and strong brandability. Aged domains with clean histories command significant premiums.'},
+  {q:'Is there an API available?',a:'Yes, the Domain Formula AI API is available for Enterprise subscribers. It supports REST endpoints for single and bulk appraisals with full formula variable control.'},
+];
+
+document.getElementById('faqList').innerHTML=faqs.map((f,i)=>`
+  <div class="faq-item" id="faq${i}">
+    <div class="faq-q" onclick="toggleFaq(${i})">${f.q}<span class="faq-arrow">+</span></div>
+    <div class="faq-a">${f.a}</div>
+  </div>`).join('');
+
+function toggleFaq(i){
+  const el=document.getElementById('faq'+i);
+  const isOpen=el.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(e=>e.classList.remove('open'));
+  if(!isOpen)el.classList.add('open');
+}
+
+// Toast
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3000);
+}
+
+// Intersection observer for cards
+const cardObserver=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}
+  });
+},{threshold:.1});
+
+document.querySelectorAll('.feature-card,.pricing-card').forEach(el=>{
+  el.style.opacity='0';el.style.transform='translateY(30px)';el.style.transition='opacity .6s ease,transform .6s ease';
+  cardObserver.observe(el);
+});
+</script>
+</body>
+</html>

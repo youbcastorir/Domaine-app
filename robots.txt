@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://domainformula.ai/sitemap.xml
+
+# Block access to private paths (none for this static site)
+Disallow: /private/
